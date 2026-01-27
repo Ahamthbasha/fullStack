@@ -1,0 +1,23 @@
+h1{
+    color: rgb(255,255,255);
+    background-color: black;
+}
+
+/* in hexadecimal format */
+
+h2{
+    color: #fff;
+    background-color: #000000;
+}
+
+p{
+    color: goldenrod;
+    color: rgb(218, 165, 32);
+    color: #daa520
+}
+
+h3{
+    /* color:skyblue; */
+    /* color: #87ceeb; */
+    color:rgb(135, 234, 241)
+}
