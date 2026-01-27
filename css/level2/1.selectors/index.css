@@ -1,0 +1,47 @@
+/* universal selector */
+
+*{
+    property:value;
+} 
+
+/* element selector */
+
+tagname{
+    property:value;
+}
+
+/* id selector */
+
+#tagname{
+    property:value;
+}
+
+/* class selector */
+
+.tagname{
+    property : value;
+}
+
+/* descendant selector */
+
+tagname tagnem{
+    property :value
+}
+
+/* adjacent sibling combinator */
+
+tagname + tagname{
+    property : value;
+}
+
+p + h3 {
+    property : value
+}
+
+/* child combinator */
+
+tageName > tagName{
+    property : value
+}
+
+/*  */
