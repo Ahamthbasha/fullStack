@@ -1,0 +1,16 @@
+/* h2{
+    display: inline;
+}
+
+span{
+    display: block;
+} */
+
+.div{
+    height: 100px;
+    width: 50px;
+    border: 2px solid green;
+    margin: 5px;
+    background-color: green;
+    display: inline-block;
+}

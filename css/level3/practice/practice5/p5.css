@@ -1,0 +1,5 @@
+li{
+    display: inline;
+}
+
+/* we overwrite the default style of the list that is the reason bullet point is disappeared */
