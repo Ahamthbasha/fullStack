@@ -1,0 +1,20 @@
+.outer{
+    height: 400px;
+    width: 400px;
+    border: 2px solid aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.alphabets{
+    width: 100px;
+    height: 100px;
+    border: 2px solid grey;
+    text-align: center;
+    background-color: gray;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 50px;
+}

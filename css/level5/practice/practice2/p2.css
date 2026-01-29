@@ -1,0 +1,14 @@
+.container{
+    height: 50px;
+    width: 900px;
+    border: 2px solid aqua;
+    background-color:pink;
+    display:flex;
+    align-content: center;
+}
+
+.child{
+    height: 50px;
+    width: 80px;
+    font-size: 24px;
+}
