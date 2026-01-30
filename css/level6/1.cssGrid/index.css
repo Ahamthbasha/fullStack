@@ -1,0 +1,17 @@
+.container{
+    width: 600px;
+    height: 300px;
+    background-color: black;
+    border: 2px solid green;
+    /* display: flex;  in case of flex the child will arrange in main axis row direction*/
+    
+    display: grid; 
+    /* incase of grid the child items arranged in column direction with space separation */
+}
+
+.item{
+    width: 100px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: yellow;
+}
