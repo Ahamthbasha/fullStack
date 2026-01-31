@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main_box{
+    background-image: url('photo.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.btn_one{
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.btn_two{
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 130px;
+}
+
+.sidebar_menu{
+    width: 170px;
+    height: 100vh;
+    border: 2px solid black;
+    box-shadow: 0px 0px 16px black;
+    position: fixed;
+    left: -250px;
+    top: 20px;
+}
+
+.sidebar_menu .logo a{
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    left: 20px;
+}
+
+.main_box .sidebar_menu .menu li,a{
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+#check{
+    display: none;
+}
+
+.main_box .sidebar_menu .menu li:hover{
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    border: 2px solid black ;
+    box-shadow: 4px 4px 16px black;
+    font-weight: 500;
+}
+
+#check:checked ~ .sidebar_menu{
+    left: 0px;
+}
