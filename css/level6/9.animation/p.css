@@ -1,0 +1,35 @@
+.box{
+    height: 100px;
+    width: 200px;
+    background-color: pink;
+    animation-name:colorText;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+}
+
+/* font */
+
+/* @keyframes fontAnimation{
+    from{
+        font-size :20px;
+    }
+    to{
+        font-size : 40px;
+    }
+} */
+
+
+/* color animation */
+
+
+@keyframes colorText{
+    from{
+        background-color: blueviolet;
+    }
+    to{
+        background-color: aqua;
+    }
+}

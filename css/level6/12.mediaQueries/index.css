@@ -1,0 +1,44 @@
+h1{
+    background-color: yellow;
+    border: 2px solid black;
+}
+
+/* media query */
+
+@media(width:400px){
+    h1{
+        background-color: red;
+    }
+}
+
+/* media query using min width */
+
+@media(min-width:700px){
+    h1{
+        background-color: aqua;
+    }
+}
+
+/* media query using max width */
+
+@media(max-width:200px){
+    h1{
+        background-color: chocolate;
+    }
+}
+
+/* media query using min and max width */
+
+@media(min-width:50px) and (max-width:150px){
+    h1{
+        background-color: cornflowerblue;
+    }
+}
+
+/* orientation */
+
+@media(orientation: landscape){
+    h1{
+        background-color: burlywood;
+    }
+}

@@ -1,0 +1,30 @@
+.box{
+    height: 100px;
+    width: 200px;
+    background-color: pink;
+    animation:colorText 2s ease-in 3s 3 alternate
+}
+
+/* font */
+
+/* @keyframes fontAnimation{
+    from{
+        font-size :20px;
+    }
+    to{
+        font-size : 40px;
+    }
+} */
+
+
+/* color animation */
+
+
+@keyframes colorText{
+    from{
+        background-color: blueviolet;
+    }
+    to{
+        background-color: aqua;
+    }
+}
