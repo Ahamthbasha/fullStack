@@ -1,0 +1,29 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: 2px solid blue;
+    display: flex;
+    /* align-items: center; */
+    /* align-items: flex-end; */
+}
+
+.box{
+    width: 100px;
+    border: 2px solid black;
+}
+
+.b1{
+    height: 50px;
+    align-self: flex-start;
+}
+
+.b2{
+    height: 100px;
+    align-self: center;
+
+}
+
+.b3{
+    height: 150px;
+    align-self: flex-end;
+}

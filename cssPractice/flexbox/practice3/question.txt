@@ -1,0 +1,14 @@
+4️⃣ Align Items
+
+Question:
+Create a row of boxes with different heights and align them:
+
+Top
+
+Center
+
+Bottom
+
+👉 Use:
+
+align-items

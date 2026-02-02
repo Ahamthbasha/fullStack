@@ -1,0 +1,19 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid brown;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo{
+    border: 2px solid brown;
+    flex-shrink: 0;
+}
+
+.menu{
+    display: flex;
+    gap: 20px;
+    flex-shrink: 1;
+}

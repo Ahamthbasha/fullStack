@@ -1,0 +1,10 @@
+6️⃣ Flex Wrap
+
+Question:
+Create 10 boxes in a container.
+
+When screen size reduces, boxes should move to the next line.
+
+👉 Use:
+
+flex-wrap

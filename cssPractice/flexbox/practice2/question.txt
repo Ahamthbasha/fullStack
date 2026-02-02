@@ -1,0 +1,14 @@
+3️⃣ Justify Content
+
+Question:
+Place 3 boxes:
+
+One at the start
+
+One in the center
+
+One at the end of the container
+
+👉 Try:
+
+justify-content: space-between / space-around / center

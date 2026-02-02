@@ -1,0 +1,12 @@
+7️⃣ Flex Grow
+
+Question:
+Create 3 boxes:
+
+First box takes 2x space
+
+Remaining boxes take 1x space
+
+👉 Use:
+
+flex-grow

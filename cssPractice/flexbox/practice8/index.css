@@ -1,0 +1,14 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid salmon;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 300px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border: 2px solid black;
+}

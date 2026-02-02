@@ -1,0 +1,17 @@
+1️⃣ Enable Flexbox
+
+Question:
+Create a container with 5 boxes placed in a row using Flexbox.
+
+👉 Focus on:
+
+display: flex
+
+2️⃣ Flex Direction
+
+Question:
+Change the layout so the boxes appear vertically instead of horizontally.
+
+👉 Use:
+
+flex-direction

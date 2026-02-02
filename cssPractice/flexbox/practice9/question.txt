@@ -1,0 +1,12 @@
+🔟 Align Self
+
+Question:
+In a row of items:
+
+Make one item align to the bottom
+
+Others stay centered
+
+👉 Use:
+
+align-self

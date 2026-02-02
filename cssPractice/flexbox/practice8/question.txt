@@ -1,0 +1,8 @@
+9️⃣ Flex Basis
+
+Question:
+Create cards where each card starts with 300px width, but adjusts based on screen size.
+
+👉 Use:
+
+flex-basis

@@ -1,0 +1,12 @@
+8️⃣ Flex Shrink
+
+Question:
+Make a navbar where:
+
+Logo should NOT shrink
+
+Menu items should shrink on smaller screens
+
+👉 Use:
+
+flex-shrink

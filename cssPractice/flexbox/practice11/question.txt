@@ -1,0 +1,1 @@
+create two box one box outer and another box inner which is center. in inner box there should be a text which should be needs to center
