@@ -4,23 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>open.spotify.com</title>
+    <link rel="icon" href="/cssMiniProject/assets/logo.png">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar">
+    <div class="main">
+        <div class="sidebar">
+            <div class="nav">
+                <div class="navOptions">
+                    <p><span><i class="fa-regular fa-house"></i></span>Home</p>
+                </div>
+                <div class="navOptions">
+                    <p> <span><i class="fa-solid fa-magnifying-glass"></i></span>Search</p>
+                </div>
+            </div>
+            <div class="library">
+                <div class="lib-options">
+                    <div class="libOpt">
+                        <img src="/cssMiniProject/assets//library_icon.png" alt="">
+                        <p>Library</p>
+                    </div>
 
-        <div class="navbar">
-            <p> 
-                <span style="color: white;"><i class="fa-solid fa-house"></i></span>
-                home
-            </p>
-            <p> 
-                <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                search
-            </p>
+                    <div class="icons">
+                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
+                </div>
+                <div class="lib-box">
+                    <div class="box">
+                        <p class="box-p1">Create your first playlist</p>
+                        <p class="box-p2">It's easy,we'll help you</p>
+                        <button class="badge">Create playlist</button>
+                    </div>
+
+                    <div class="box">
+                        <p class="box-p1">Let's find some podcasts to follow</p>
+                        <p class="box-p2">We will keep you updated on new episodes</p>
+                        <button class="badge">Browse podcasts</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="mainContent">
+            <div class="sticktyNav">
+                <div class="stickyNavIcon">
+                    <img src="/cssMiniProject/assets/forward_icon.png" alt="">
 
+                    <img src="/cssMiniProject/assets/backward_icon.png" alt="">
+                </div>
+
+                <div class="stickyNavButton">
+                    <button class="badge">Explore Premium</button>
+                    <button class="badge"><i class="fa-solid fa-download"></i>Install App</button>
+                    <button class="badge"><i class="fa-regular fa-user"></i></button>
+                </div>
+            </div>
+
+            <div class="cards">
+                <h2>Recently played</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="/cssMiniProject/assets/card1img.jpeg" class="card-img">
+                        <p class="card-title">Top 50 - Global</p>
+                        <p class="card-info">Hello how are you</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="musicPlayer">
+            <div class="album"></div>
+            <div class="player">
+                <div class="playerControls">
+                    <img src="/cssMiniProject/assets/player_icon1.png" class="playerControlIcon">
+                    <img src="/cssMiniProject/assets/player_icon2.png" class="playerControlIcon">
+                    <img src="/cssMiniProject/assets/player_icon3.png" class="playerControlIcon">
+                    <img src="/cssMiniProject/assets/player_icon4.png" class="playerControlIcon">
+                    <img src="/cssMiniProject/assets/player_icon5.png" class="playerControlIcon">
+                </div>
+                <div class="progress-bar">
+                    <span class="current-time">00:00</span>
+                    <input type="range" min="0" max="100" class="progress-bar" >
+                    <span class="total-time">3:33</span>
+                </div>
+            </div>
+            <div class="controls"></div>
+        </div>
     </div>
 </body>
 </html>

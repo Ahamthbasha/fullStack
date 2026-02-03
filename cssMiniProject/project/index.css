@@ -1,15 +1,161 @@
 *{
+    font-family: "Montserrat", sans-serif;
+    color: white;
     background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+
+.main{
+    display: flex;
+    height: 100vh;
 }
 
 .sidebar{
-    width: 100px;
-    height: 100vh;
-    color: white;
-    background-color: white;
+    width: 350px;
+    border-radius: 1rem;
+    background-color: gray;
+    align-items:stretch;
 }
 
-.sidebar .navbar{
-    width: 50px;
-    height: 30px;
+.mainContent{
+    flex: 1;
+    border-radius: 1rem;
+    overflow: auto;
+}
+
+.musicPlayer{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+}
+
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1rem;
+    background-color: gray;
+}
+
+.navOptions{
+    font-size: 1rem;
+    margin: 0.5rem;
+    padding: 0.2rem;
+    opacity: 0.75;
+}
+
+.navOptions:hover{
+    opacity: 1;
+}
+
+.library{
+    height: 100%;
+}
+
+.lib-options{
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    border-radius: 1rem;
+}
+
+.libOpt{
+    display: flex;
+    font-size: 1rem;
+    margin: 1rem;
+    align-items: center;
+    
+}
+
+.libOpt img{
+    width: 1.5rem;
+    height: 1rem;
+}
+
+.icons{
+    display: flex;
+    align-items: center;
+    opacity: 0.75;
+}
+
+.icons:hover{
+    opacity: 1;
+}
+
+.box{
+    background-color: gray;
+    border-radius: 0.5rem;
+}
+
+.box-p1{
+    background-color: gray;
+    padding: 0.5rem;
+}
+
+.box-p2{
+    background-color: gray;
+    padding: 0.5rem;
+}
+
+.badge{
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.75rem;
+    background-color: white;
+    color: black;
+}
+
+.stickyNav{
+    position:sticky;
+    top:0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.stickyNavIcon{
+    display: flex;
+}
+
+.stickyNavButton{
+    display: flex;
+}
+
+
+.card{
+    background-color: #232323;
+    width: 150px;
+    border-radius: 20;
+    background-color: antiquewhite;
+    margin: 0.5rem;
+}
+
+.card-container{
+    display: flex;
+}
+
+.card-img{
+    width: 100%;
+    border-radius: .5rem;
+}
+
+.musicPlayer{
+    display: flex;
+}
+
+.album{
+    width: 25%;
+}
+
+.player{
+    width: 25%;
+}
+
+.controls{
+    width: 25%;
 }
