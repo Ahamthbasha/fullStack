@@ -1,0 +1,81 @@
+1. null == undefined will be true
+2. null === undefined will be false
+
+3. Truthy values and falsy values
+
+It will take values in boolean context.
+
+falsy values
+
+0,-0,false,On(BigInt value),"",null,undefined,Nan, negative values all are falsy.
+
+4. alert
+
+just show the alert message
+
+syntax:
+alert("hello")
+
+5.prompt
+
+it shows a dialog box and takes input
+
+syntax:
+prompt("please enter your name)
+
+6.Methods
+
+Actions that can be performed on objects
+Strings are immutable. New string only be created. changes wont affect in string.
+
+7.negative slice calculation 
+
+str.slice(-7,-1)
+
+calculation will be done like string length - 7 for starting index.
+string length - 1 for ending index
+
+
+8. let no = [1,2,3,4,5]
+
+typeof no will be object for this array.
+
+Mixed arrays contains different types of values.
+
+9. Arrays are mutable.
+
+let arr = []
+
+arr[0] = "basha"
+
+arr[10] = "super duper hit"
+
+console.log(arr)
+
+arr[5] = "ahamath"
+
+console.log(arr)
+
+In this case of arr you specifically mention where to store so in between space will be empty.
+
+10.Array references
+
+Reference means address in memeory   
+
+let arr1 = [1]
+let arr2 = [1]
+
+arr1 is memory address arr2 is another memory address so which will be false
+
+[1] === [1] false
+[1] == [1] false
+
+11.constant array
+
+const arr = [1,2,3,4]
+
+by using const we can do operations. But we can not change the entire arr or giving new references
+
+12.Nested Array
+
+An array consist of multiple arrays.
