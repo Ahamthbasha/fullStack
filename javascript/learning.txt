@@ -79,3 +79,45 @@ by using const we can do operations. But we can not change the entire arr or giv
 12.Nested Array
 
 An array consist of multiple arrays.
+
+
+13.for loop used when we know the ending
+
+14.Infinite loops
+
+for(let i=1;i>=0;i++){
+
+}
+
+for(let i=1;i<=5;i--){
+
+}
+
+for(let i=1;i++){
+
+}
+
+15.nested for loop
+
+16.while loop we use when we dont know the ending
+
+17.For of loop is not work on internet explorer
+
+18.object literals are objects which is used to store keyed collections and complex entities.
+
+property => (key,value) pair
+
+objects are a collection of properties.
+
+js automatically converts object keys to string.
+Even if we made the number as a key, the number will be converted to string.
+Ex:
+
+const obj = {
+    1:"basha",
+    null:"all rounder"
+}
+
+obj.1 will throw error you need to access like this obj[1]
+obj.null will accessible
+

@@ -363,11 +363,11 @@
 // }
 
 // 34.write a js program to test whether the character at the index is lowercase
-let index = 0
+// let index = 0
 
-let character = "abcdEf"
+// let character = "abcdEf"
 
-console.log(character[index] == character[index].toLowerCase())
+// console.log(character[index] == character[index].toLowerCase())
 
 // 35. write a js program to strip leading and trailing spaces from a string.
 
@@ -380,3 +380,405 @@ console.log(character[index] == character[index].toLowerCase())
 // let fruits = ['apple','mango','cherry']
 
 // console.log(fruits.includes("banana"))
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// part - 4
+
+// 37.Print all odd number from 1 to 15
+
+// for(let i=1;i<=15;i++){
+//     if(i % 2 != 0){
+//         console.log(i)
+//     }
+// }
+
+// 38.print all even number from 2 to 10
+
+// for(let i=2;i<=10;i=i+2){
+//     console.log(i)
+// }
+
+// 39.print the multiplication table for 5
+
+// for(let i=1;i<=50;i++){
+//     console.log(`${i} * ${5} = ${i*5}`)
+// }
+
+// 40.Make user guessing the favourite Movie
+
+// let favouriteMovie = "Avatar"
+// let guess = prompt("enter my favourite movie")
+//     while(guess != favouriteMovie){
+//         guess = prompt("Re-enter your favouriteMovie")
+//         if(guess == favouriteMovie){
+//             alert("you guessed my favouriteMovie")
+//             break
+//         }
+//     }
+
+// 41.create a todo
+
+// let todo = []
+// let req = prompt("enter your request")
+
+// while(true){
+//     if(req == "quit"){
+//         console.log("todo list is quitted")
+//         break
+//     }
+//     else if(req == "add"){
+//         req = prompt("enter your task")
+//         todo.push(req)
+//     }
+//     else if(req == "delete"){
+//         req = prompt("enter your task you want to delete")
+//         let taskIndex = req.indexOf(req)
+//         todo.splice(taskIndex,1)
+//         alert("task is deleted")
+//     }
+//     else if(req == "list"){
+//         for(let val of todo){
+//             console.log(val)
+//         }
+//     }
+//     else{
+//         alert("invalid request")
+//         break
+//     }
+
+//     req = prompt("enter your request")
+// }
+
+// 42. write a js program to delete all occurences of element num in a given array.
+
+// let arr = [1,2,3,4,5,6,2,3]
+// let num = 2
+
+// for(let i=0;i<arr.length;i++){
+//     if(arr[i] == num){
+//         arr.splice(i,1)
+//     }
+// }
+
+// console.log(arr)
+
+// 43.write a program to find the no of digits in a number
+
+// let number = 287152
+// answer: count = 6
+
+// let stringNumber = number.toString().length
+// console.log(stringNumber)
+
+// alternative way
+
+// let temp = number
+// let count = 0
+// while(temp){
+//     temp = Math.floor(temp/10)
+//     count++
+// }
+
+// console.log(count)
+
+// 44.print the factorial of number n
+
+// let fact = 5
+// let result = 1
+// for(let i=1;i<=5;i++){
+//     result *= i
+// }
+
+// console.log(result)
+
+// 45.find the largest number in an array with only positive numbers.
+
+// let arr = [1000,2000,20,30000]
+
+// console.log(Math.max(...arr))
+
+// alternative way
+
+// let largest = -Infinity
+
+// for(let val of arr){
+//     if(val > largest){
+//         largest = val
+//     }
+// }
+
+// console.log(largest)
+
+// 46.find the sum of digits in a number
+
+// let number = 287152
+// ans 25
+
+// let temp = number
+// let sum = 0
+// while(temp){
+//     let remainder = temp % 10
+//     sum += remainder
+//     temp = Math.floor(temp/10)
+// }
+
+// console.log(sum)
+
+// 47.Create an object literal for the properties of thread / twitter post which includes username,content,likes,reposts,tags
+
+// const twitter ={
+//     username:"ahamathbasha",
+//     content:"I am the best",
+//     likes:100,
+//     repost:100,
+//     tags:["#hello"]
+// }
+
+// 48.Add/update value 
+// change the city to "Mumbai"
+// Add a new property gender:"Female"
+// change the marks to "A"
+
+// const student = {
+//     name :"Shradha",
+//     age:23,
+//     marks:94.4,
+//     city:"Delhi"
+// }
+
+// student.city = "Mumbai"
+// student.gender = "female"
+// student.marks = "A"
+
+// console.log(student)
+
+// 49.generate a random no between one to ten
+
+// let nums = Math.random()
+
+// nums =Math.floor(nums * 10) + 1
+
+// console.log(nums)
+
+// 50.generate a random no between 1 to 100
+
+// let nums = Math.random()
+
+// nums = Math.floor(nums * 100) + 1
+// it will generate the no between 1 to 100 the 1 denotes the start range and 100 denote the end
+
+// console.log(nums)
+
+// 51.generate a random no between 1 to 5
+
+// let nums5 = Math.random()
+
+// nums5 = Math.floor(nums5 * 5) + 1
+
+// console.log(nums5)
+
+// 51.user enters a max number and then tries to guess a random generated number between 1 to max.
+
+// let no = prompt("enter your Max number")
+// let number = Math.floor(Math.random() * Number(no)) + 1
+// let guessingNo = prompt("guessing number")
+
+// while(true){
+//     if(guessingNo == 'quit'){
+//         alert("you quit the game")
+//         break
+//     }
+//     if(Number(guessingNo) == number){
+//         alert("you guess the number")
+//         break
+//     }
+//     else{
+//         if(guessingNo < number){
+//             alert("try larger number")
+//         }
+//         else if(guessingNo > number){
+//             alert("go down")
+//         }
+//         else{
+//             alert("try until conquer")
+//         }
+//         guessingNo = prompt("wrong guess.Please guess again")
+//     }
+// }
+
+// 52.create a program that generates a random number representing a dice roll.The number should be between 1 to 6
+
+// let num = Math.floor(Math.random() * 6) + 1
+// console.log(num)
+
+// 53.create an object representing a car that stores the following properties for the car:name,model,color. Print the car name.
+
+// let carObj = {
+//     name:"ferrari",
+//     model:2000,
+//     color:"red"
+// }
+
+// console.log(carObj.name)
+
+// 54.create an object person with their name age and city.Edit their city original value to change it to "NEW YORK".Add  a new property country and set it to the united states.
+
+// const person = {
+//     name:"ahamathbasha",
+//     age:21,
+//     city:"TVM"
+// }
+
+// person.city = "New York"
+
+// person.country = "United States"
+
+// console.log(person)
+
+// 55.create a function that prints a poem
+
+// function printPoem(){
+//     console.log("twinkle twinkle")
+// }
+
+// printPoem()
+
+// 56.create a function to roll a dice and always display the value of the dice(1 to 6)
+
+// function dice(){
+//     return Math.floor(Math.random() * 6) + 1
+// }
+
+// console.log(dice())
+
+// 57.create a function that gives us the average of 3 numbers
+
+// function no(n1,n2,n3){
+//     return (n1+n2+n3)/3
+// }
+
+// console.log(no(1,2,3))
+
+// 58.create a function that prints the multiplication table of a number
+
+// function table(no,start,limit){
+//     for(let i=start;i<=limit;i++){
+//         console.log(`${i} * ${no} = ${i * no}`)
+//     }
+// }
+
+// table(10,1,10)
+
+// 59.create a function that returns the sum of numbers from 1 to n
+
+// function sumOfNo(n){
+//     let sum = 0
+//     for(let i=1;i<=n;i++){
+//         sum += i
+//     }
+//     return sum
+// }
+
+// console.log(sumOfNo(10))
+
+
+// 60.create a function that returns the concatenation of all strings in an array.
+
+// function concat(arr){
+//     let result = ""
+
+//     for(let val of arr){
+//         result += val
+//     }
+
+//     return result
+// }
+
+// console.log(concat(['hi','hello','basha']))
+
+// 61.What will be the output?
+
+// let greet = "hello"
+
+// function changeGreet(){
+//     let greet = "namaste"
+//     console.log(greet) //namate
+//     function innerGreet(){
+//         console.log(greet) //namaste
+//     }
+// }
+
+// console.log(greet) // ans:hello
+// changeGreet()
+
+// 62. write a js function that accepts a list of country names as input and returns the longes country name as output.
+
+// let country = ["Australia","Germany","United States Of America"]
+
+// let largest = ''
+
+// for(let val of country){
+//     if(val.length > largest.length){
+//         largest = val
+//     }
+// }
+
+// console.log(largest)
+
+// 63.count vowels in a string argument
+
+// function countVowels(str){
+//     let vowels = ['a','e','i','o','u','A','E','I','O','U']
+//     let count = 0
+//     for(let val of str){
+//         if(vowels.includes(val)){
+//             count++
+//         }
+//     }
+
+//     return count
+// }
+
+// console.log(countVowels("ahamathbasha"))
+
+// 64.write a js function to extract unique characters from a string.
+
+// function uniqueCharacters(str){
+//     let result = ''
+
+//     for(let val of str){
+//         if(!result.includes(val)){
+//             result += val
+//         }
+//     }
+
+//     return result
+// }
+
+// console.log(uniqueCharacters("ahamathbasha"))
+
+// 65.write a javascript function which generate a random number within a range(start,end)
+
+// function randomNo(start,end){
+//     return Math.floor(Math.random() * end) + start
+// }
+
+// console.log(randomNo(1,5))
+
+// 66.write a function that returns array elements larger than a number.
+
+// let arr = [8,10,4,4,10,11,12,15,12,11]
+
+// let nums = 5
+
+// let result = []
+
+// for(let val of arr){
+//     if(val > nums){
+//         result.push(val)
+//     }
+// }
+
+// console.log(result)
