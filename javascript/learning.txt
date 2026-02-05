@@ -121,3 +121,39 @@ const obj = {
 obj.1 will throw error you need to access like this obj[1]
 obj.null will accessible
 
+19.this refers to the current execution context
+
+in object it denotes object
+in function it denotes window 
+
+20.try and catch
+
+try statement allows you to define a block of code to be test for errors while it is being executed.
+
+catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+Ex:
+
+try{
+console.log(a)
+}catch(error){
+    console.log(`a is not defined`)
+}
+
+21. 
+let chars = [..."hello"]
+console.log(chars) //["h","e","l","l","o"]
+
+let arr = [1,2,3,4]
+let obj = {...arr}
+console.log(obj) //{0:1,1:2,2:3,3:4}
+
+let arr2 = "hello"
+let obj = {...arr2}
+console.log(obj) // {0:"h",1:"e",2:"l",3:"l",4:"o"}
+
+22.destructure
+
+let names = ["tony","bruce","peter","steve"]
+let [winner,runner,...others] = names
+console.log(others) // ["peter","steve"]

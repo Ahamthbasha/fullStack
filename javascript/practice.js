@@ -782,3 +782,152 @@
 // }
 
 // console.log(result)
+
+// 67. write an arrow function that returns the square of a number n.
+
+// let square = (n) => n * n
+// console.log(square(10))
+
+// 68.Write a function that prints "Hello world" 5 times at intervals of 2s each.
+
+// function print(){
+//     let count = 1
+//     let ref  
+//     ref = setInterval(()=>{
+//         console.log("Hello World")
+//         if(count == 5){
+//             clearInterval(ref)
+//         }
+//         else{
+//             count++
+//         }
+//     },2000)
+// }
+
+// print()
+
+// 69. write an arrow function named array that accepts an array of numbers and returns the average of those numbers.
+
+// let avgArr = (arr)=>{
+//     let sum = 0
+//     for(let val of arr){
+//         sum += val
+//     }
+
+//     return sum / arr.length
+// }
+
+// console.log(avgArr([1,2,3,4,5]))
+
+// 70.write an arrow function named isEven() that takes a single number as argument and returns if it is even or not.
+
+// let isEven = (n) => n % 2 == 0
+
+// console.log(isEven(5))
+
+// 71.what is the output of the following code
+
+// const object = {
+//     message : "Hello,world!",
+//     logMessage : function(){
+//         console.log(this.message)
+//     }
+// }
+
+// object.logMessage()
+
+// setTimeout(object.logMessage,1000) //here settimeout takes a function as a callback it becomes an arrowfunction. It does not have own this context it takes context from parent so which is window.
+
+// 72. what is the output of the following code
+
+// let length = 4
+
+// function callback(){
+//     console.log(this)
+//     console.log(this.length)
+// }
+
+// const object = {
+//     length : 5,
+//     method(callback){
+//         callback()
+//     }
+// }
+
+// object.method(callback,1,2)
+
+// 73.Find maximum in an array
+
+// let no = [2,3,4,5,3,4,7,8,1,2]
+
+// let result = no.reduce((acc,cur)=>cur > acc ? cur : acc)
+
+// console.log(result)
+
+// 74.check if all numbers in our array are multiples of 10 or not.
+
+// let arr = [10,20,30,1,3,4,10,7]
+
+// let check = arr.every((val)=>val % 10 == 0)
+
+// console.log(check)
+
+// 75.Create a function to find the min number in an array.
+
+// let arr = [1,2,-1,3,4,5,0]
+
+// let min = arr.reduce((acc,cur)=>cur < acc ? cur : acc)
+
+// console.log(min)
+
+// 76. square and sum the array elements using the arrow function and then find the average of the array.
+
+// let num = [1,2,3,4,5]
+
+// let average = (val)=>{
+//     let sum = 0
+
+//     for(let no of val){
+//         sum += no * no
+//     }
+
+//     return sum/val.length
+// }
+
+// console.log(average(num))
+
+// 77.create a new array using the map function whose each element is equal to the original element plus 5
+
+// let fiveNum = num.map((val)=>val+5)
+
+// console.log(fiveNum)
+
+// 78.create a new array whose elements are in uppercase of words present in the original array.
+
+// let strings=["adam","bob","catlyn","donald","eve"];
+
+// strings = strings.map((val)=>val.toUpperCase())
+
+// console.log(strings)
+
+// 79.write a function called doubleAndReturnArgs which accepts an array and a variable no of argument. The function should return a new array with the original array values and all of the additional arguments doubled.
+
+// function doubleAndReturnArgs(arr,...args){
+//     let temp = []
+
+//     for(let val of args){
+//         temp.push(val * val)
+//     }
+
+//     return [...arr,...temp]
+// }
+
+// console.log(doubleAndReturnArgs([1,2,3,4,5],6,7,8,9,10))
+
+// 80.write a function called mergeObjects that accepts two objects and returns a new object which contains all the keys and values of the first object and second object.
+
+// function mergeObjects(obj1,obj2){
+//     return {...obj1,...obj2}
+// }
+
+// console.log(mergeObjects({name:"ahamath"},{age:50}))
