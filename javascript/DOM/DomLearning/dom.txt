@@ -1,0 +1,86 @@
+1. document
+
+2. document.all
+
+3. document.getElementById('idname')
+it returns as an object or null
+
+4. document.getElementByClass(')
+It returns the elements as an html collection or empty collection.
+
+5. document.getElementByTagName("p")
+it returns the elements as an html collection or empty collection.
+
+6. document.querySelector("p")
+It select the first element from tag
+
+7. document.querySelector("#description")
+It select the first id element
+
+8. document.querySelector(".oldImg")
+It select the first class element
+
+9. document.querySelector("tag tag")
+It select the elements from the nested one
+
+
+10. document.querySelectorAll("p")
+It select all elements
+
+11.innerText - Shows the visible text contained in the node
+
+12.textContent - Shows all the full text.Content written in html file which will be shown.
+
+13.innerHtml - shows the full markup
+
+14.obj.getAttribute(attr)
+
+15.obj.setAttribute(attr,val)
+
+16.obj.style
+if style is defined in css it won't be accessible by js.we can access the inline style.
+
+17.classList
+
+classList.add()
+
+classList.remove()
+
+classList.exist() 
+It is used to check if class exists.
+
+classList.toggle()
+It is used to toggle between add and remove.
+
+in case of setattribute we can setone class but in case of using classList we can add multiple class to the element
+
+18.Navigation
+
+parentElement
+
+children
+
+previousElementSibling/nextElementSibling
+
+19.adding element
+
+document.createElement('p')
+
+appendChild(element) : by using appendChild we can  append the element.
+
+append(element) : by using append we can add the text at the last for the specified element. The text will be added at the end.It will shift the place of the element.
+
+prepend(element) : by using prepend we can add the text at the beginning for the specified element.add the text and shift the place where it needs to display
+
+insertAdjacent(position,element) : by using this we specify where we need to add and which element need to be add.
+
+'beforebegin'
+'afterbegin'
+'beforeend'
+'afterend'
+
+20.removing element
+
+a.removeChild(element)
+
+b.remove(element)
