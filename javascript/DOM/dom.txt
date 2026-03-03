@@ -84,3 +84,16 @@ insertAdjacent(position,element) : by using this we specify where we need to add
 a.removeChild(element)
 
 b.remove(element)
+
+21.Dom events
+
+Events are signals that something has occured.(user inputs/actions)
+
+onclick(when an element is clicked)
+onmouseenter(when mouse enters an element)
+
+event listener:
+
+Why evenet listener needed because for a single element there should be single events will be allocated. If the element want to perform multiple action they need the event listener by using that we add multiple function to a single element. By using .onClick one value or function will be added to that element.
+
+obj.addEventListener('event',(()=>{}))
