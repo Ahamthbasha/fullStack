@@ -376,3 +376,123 @@
 
 // console.log(-1)
 
+//14.stock buy and sell
+
+// let prices = [7,1,5,3,6,4]
+// let prices =  [7, 6, 4,  3, 1] 
+
+// let buyPrice = Infinity
+// let maxProfit = 0
+
+// for(let val of prices){
+//     if(buyPrice < val){
+//         let profit = val - buyPrice
+//         maxProfit = Math.max(profit,maxProfit)
+//     }else{
+//         buyPrice = val
+//     }
+// }
+
+// console.log(maxProfit)
+
+//15. trap after raining
+
+// let height = [0, 1, 0,  2, 1, 0, 1, 3, 2, 1, 2, 1]
+// let height = [4, 2, 0, 3, 2, 5]
+
+// let leftMaxBoundary = []
+// let rightMaxBoundary = []
+
+// if(height.length < 2){
+//     console.log(0)
+//     return
+// }
+// leftMaxBoundary[0] = height[0]
+
+// for(let i=1;i<height.length;i++){
+//     leftMaxBoundary[i] = Math.max(leftMaxBoundary[i-1],height[i])
+// }
+
+// rightMaxBoundary[height.length-1] = height[height.length-1]
+
+// for(let i=height.length-2;i>=0;i--){
+//     rightMaxBoundary[i] = Math.max(rightMaxBoundary[i+1],height[i])
+// }
+
+// let trappedRainWater = 0
+
+// for(let i=0;i<height.length;i++){
+//     let waterBarLevel = Math.min(leftMaxBoundary[i],rightMaxBoundary[i])
+//     trappedRainWater += waterBarLevel - height[i]
+// }
+
+// console.log(trappedRainWater)
+
+// 16. Find triplets with zero
+
+// let nums = [-1,0,1,2,-1,-4]
+// // output : [[-1,-1,2],[-1,0,1]]
+
+// let result = []
+// let check = new Set()
+// for(let i=0;i<nums.length;i++){
+//     for(let j=i+1;j<nums.length;j++){
+//         for(let k=j+1;k<nums.length;k++){
+//             let sum = nums[i] + nums[j] + nums[k]
+//             if(sum == 0){
+//                 let arr = [nums[i],nums[j],nums[k]].sort((a,b)=>a-b)
+//                 let tempCheck = arr.join("")
+//                 if(check.has(tempCheck)){
+//                     continue
+//                 }else{
+//                     check.add(tempCheck)
+//                     result.push(arr)
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// console.log(result)
+
+// reduce one loop to find the triplets
+
+let nums = [-1,0,1,2,-1,-4]
+let result = []
+
+nums.sort((a,b)=>a-b)
+
+for(let i=0;i<nums.length;i++){   if(i > 0 && nums[i] == nums[i-1]){
+        continue
+    }else{
+        let left = i+1
+        let right = nums.length-1
+
+        while(left < right){
+            let sum = nums[i] + nums[left] + nums[right]
+
+            if(sum == 0){
+                result.push([nums[i],nums[left],nums[right]])
+
+                while(left < right && nums[left] == nums[left+1]){
+                    left++
+                }
+
+                while(left < right && nums[right] == nums[right-1]){
+                    right--
+                }
+
+                left++
+                right--
+            }
+            else if(sum < 0){
+                left++
+            }
+            else{
+                right--
+            }
+        }
+    }
+}
+
+console.log(result)
