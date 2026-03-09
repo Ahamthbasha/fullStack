@@ -457,42 +457,266 @@
 
 // reduce one loop to find the triplets
 
-let nums = [-1,0,1,2,-1,-4]
-let result = []
+// let nums = [-1,0,1,2,-1,-4]
+// let result = []
 
-nums.sort((a,b)=>a-b)
+// nums.sort((a,b)=>a-b)
 
-for(let i=0;i<nums.length;i++){   if(i > 0 && nums[i] == nums[i-1]){
-        continue
-    }else{
-        let left = i+1
-        let right = nums.length-1
+// for(let i=0;i<nums.length;i++){   if(i > 0 && nums[i] == nums[i-1]){
+//         continue
+//     }else{
+//         let left = i+1
+//         let right = nums.length-1
 
-        while(left < right){
-            let sum = nums[i] + nums[left] + nums[right]
+//         while(left < right){
+//             let sum = nums[i] + nums[left] + nums[right]
 
-            if(sum == 0){
-                result.push([nums[i],nums[left],nums[right]])
+//             if(sum == 0){
+//                 result.push([nums[i],nums[left],nums[right]])
 
-                while(left < right && nums[left] == nums[left+1]){
-                    left++
-                }
+//                 while(left < right && nums[left] == nums[left+1]){
+//                     left++
+//                 }
 
-                while(left < right && nums[right] == nums[right-1]){
-                    right--
-                }
+//                 while(left < right && nums[right] == nums[right-1]){
+//                     right--
+//                 }
 
-                left++
-                right--
-            }
-            else if(sum < 0){
-                left++
-            }
-            else{
-                right--
-            }
-        }
+//                 left++
+//                 right--
+//             }
+//             else if(sum < 0){
+//                 left++
+//             }
+//             else{
+//                 right--
+//             }
+//         }
+//     }
+// }
+
+// console.log(result)
+
+//spiral matrix
+
+// let arr = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+
+// let spiralArr = []
+
+// let startRow = 0
+// let endRow = arr.length-1
+// let startCol = 0
+// let endCol = arr[0].length-1
+
+
+// while((startRow <= endRow) && (startCol <= endCol)){
+//     //top
+
+//     for(let i=startRow;i<=endRow;i++){
+//         spiralArr.push(arr[startRow][i])
+//     }
+
+//     //right
+
+//     for(let j=startRow+1;j<=endRow;j++){
+//         spiralArr.push(arr[j][endRow])
+//     }
+
+//     //bottom
+
+//     for(let k=endCol-1;k>=startCol;k--){
+//         if(startRow == endRow){
+//             break
+//         }
+//         spiralArr.push(arr[endRow][k])
+//     }
+
+//     //left
+
+//     for(let l=endCol-1;l>=startCol+1;l--){
+//         if(startCol == endCol){
+//             break
+//         }
+//         spiralArr.push(arr[l][startCol])
+//     }
+
+//     startRow++
+//     startCol++
+//     endRow--
+//     endCol--
+// }
+
+// console.log(spiralArr)
+
+//diagonal sum 
+
+//my logic
+
+// let arr = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+
+// let leftDiagonal = []
+// let rightDiagonal = []
+
+// let start = 0
+// let end = arr[0].length-1
+
+// for(let i=0;i<arr.length;i++){
+//     for(let j=0;j<arr[0].length;j++){
+//         if(i == j){
+//             leftDiagonal.push(arr[i][j])
+//         }
+
+//         if(i == start && j == end){
+//             rightDiagonal.push(arr[start][end])
+//         }
+//     }
+//     start++
+//     end--
+// }
+
+// let leftDiagonalSum = leftDiagonal.reduce((acc,cur)=>acc+cur)
+
+// let rightDiagonalSum = rightDiagonal.reduce((acc,cur)=>acc+cur)
+
+// let total = leftDiagonalSum + rightDiagonalSum
+
+// console.log(total)
+
+//apna college diagonal sum logic
+
+
+// let arr = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+
+
+// let sum = 0
+
+// for(let i=0;i<arr.length;i++){
+//     for(let j=0;j<arr[0].length;j++){
+//         if(i == j){
+//             sum += arr[i][j]
+//         }
+//         else if(i+j == arr.length-1){
+//             sum += arr[i][j]
+//         }
+//     }
+// }
+
+// console.log(sum)
+
+// linear time complexity 
+
+// let arr = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+
+// let sum = 0
+
+// for(let i=0;i<arr.length;i++){
+    //pd
+    // sum += arr[i][i]
+
+    //sd
+    //finding the j index formula 
+    // i+j = n-1 
+    // j = n - l - i
+
+//     sum += arr[i][arr.length-1-i]
+// }
+
+// console.log(sum)
+
+//////////////////////////////////////////////////////////////
+
+//search in sorted matrix
+
+// let arr = [[10,20,30,40],[15,25,35,45],[27,29,37,48],[32,33,39,50]]
+// let key = 33
+
+//brute force approach
+
+// for(let i=0;i<arr.length;i++){
+//     for(let j=0;j<arr[0].length;j++){
+//         if(arr[i][j] == key){
+//             console.log(true)
+//             return
+//         }
+//     }
+// }
+
+// console.log(false)
+
+//using binary search and staircase search
+
+//  let arr = [[10,20,30,40],[15,25,35,45],[27,29,37,48],[32,33,39,50]]
+
+// let key = 33
+
+// let row = 0
+// let col = arr[0].length-1
+
+// while(row < arr.length && col >= 0){
+//     if(arr[row][col] == key){
+//         console.log(true)
+//         return
+//     }
+//     else if(key  < arr[row][col]){
+//         col--
+//     }
+//     else{
+//         row++
+//     }
+// }
+
+// console.log(false)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// print the no of 7 that are in the second array
+
+// let array = [[4,7,8],[8,8,7]]
+
+// let take = array[1]
+
+// let count = 0
+
+// for(let val of take){
+//     if(val == 7){
+//         count++
+//     }
+// }
+
+// console.log(count)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// print out the sum of the no in the second row of the nums array.
+
+// let nums = [[1,4,9],[11,4,3],[2,2,3]]
+
+// let take = nums[1]
+
+// let sum = 0
+
+// for(let val of take){
+//     sum += val
+// }
+
+// console.log(sum)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let arr = [[1,2,3],[4,5,6]]
+
+let transpose = []
+
+let row = arr.length
+let column = arr[0].length
+
+for(let i=0;i<column;i++){
+    let temp = []
+    for(let j=0;j<row;j++){
+        temp.push(arr[j][i])
     }
+
+    transpose.push(temp)
 }
 
-console.log(result)
+console.log(transpose)
