@@ -291,3 +291,5 @@ let words = ['apple','mango','banana']
 // }
 
 // console.log(checkAnagram("listen","silent"))
+
+
