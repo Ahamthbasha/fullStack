@@ -24,22 +24,22 @@
 // "abc"
 //output : a, b, c, ab, bc, ac, abc
 
-function subsets(str,index,ans='',result=[]){
-    if(index == str.length){
-        result.push(ans)
-        return
-    }
+// function subsets(str,index,ans='',result=[]){
+//     if(index == str.length){
+//         result.push(ans)
+//         return
+//     }
 
-    //yes choice 
+//     //yes choice 
 
-    subsets(str,index+1,ans+str[index],result)
+//     subsets(str,index+1,ans+str[index],result)
 
-    //no choice
-    subsets(str,index+1,ans,result)
+//     //no choice
+//     subsets(str,index+1,ans,result)
 
-    return result
-}
-console.log(subsets('abc',0))
+//     return result
+// }
+// console.log(subsets('abc',0))
  
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,3 +65,142 @@ console.log(subsets('abc',0))
 // }
 
 // console.log(permutation(str))
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// n queens.
+
+//create the chess board
+
+// let n = 4
+
+// let chess  =[]
+
+// for(let i=0;i<n;i++){
+//     let temp = []
+//     for(let j=0;j<n;j++){
+//         temp[j] = 'X'
+//     }
+//     chess.push(temp)
+// }
+
+// place nQueens without checking the attack
+
+// function nQueens(board,row){
+//     if(row == board.length){
+//         console.log("----chessboard----")
+//         console.log(board)
+//         return
+//     }
+
+//     for(let j=0;j<board.length;j++){
+//         board[row][j] = 'Q'
+//         nQueens(board,row+1)
+//         board[row][j] = 'X'
+//     }
+// }
+
+// nQueens(chess,0)
+
+//place nQueens with check attack condition
+
+// function isSafe(board,row,col){
+//     //vertical up
+
+//     for(let i=row-1;i>=0;i--){
+//         if(board[i][col] == 'Q'){
+//             return false
+//         }
+//     }
+
+//     //diagonal left up
+//     for(let i=row-1,j=col-1;i>=0 && j>=0;i--,j--){
+//         if(board[i][j] == 'Q'){
+//             return false
+//         }
+//     }
+
+//     //diagonal right up
+
+//     for(let i=row-1,j=col+1;i>=0 && j<board.length;i--,j++){
+//         if(board[i][j] == 'Q'){
+//             return false
+//         }
+//     }
+
+//     return true
+// }
+
+// function nQueens(board,row){
+//     if(row == board.length){
+//         console.log(board.map(row => row.join(' ')).join('\n'))
+//         console.log('------')
+//         return
+//     }
+
+//     for(let j=0;j<board.length;j++){
+//         if(isSafe(board,row,j)){
+//             board[row][j] = 'Q'
+//             nQueens(board,row+1)
+//             board[row][j] = 'X'
+//         }
+//     }
+// }
+
+// nQueens(chess,0)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 2. FIND TOTAL NO OF SOLUTIONS
+
+// let count = 0
+
+// function nQueens2(board,row){
+//     if(row == board.length){
+//         count++
+//     }
+
+//     for(let j=0;j<board.length;j++){
+//         if(isSafe(board,row,j)){
+//             board[row][j] = 'Q'
+//             nQueens2(board,row+1)
+//             board[row][j] = 'X'
+//         }
+//     }
+// }
+
+// nQueens2(chess,0)
+
+// console.log(count)
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//3.NQUEENS PRINT ONE SOLUTION
+
+// function nQueenPrintOneSolution(board,row){
+//     if(row == board.length){
+//         return true
+//     }
+
+//     for(let j=0;j<board.length;j++){
+//         if(isSafe(board,row,j)){
+//             board[row][j] = 'Q'
+//             if(nQueenPrintOneSolution(board,row+1)){
+//                 return true
+//             }
+//             board[row][j] = 'X'
+//         }
+//     }
+
+//     return false
+// }
+
+// if(nQueenPrintOneSolution(chess,0)){
+//     console.log(chess.map(row => row.join(' ')).join('\n'))
+// } else {
+//     console.log("No solution")
+// }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
