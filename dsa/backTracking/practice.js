@@ -204,3 +204,132 @@
 // }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//grid ways
+
+// find number of ways to reach from (0,0) to (n-1,m-1) in a n*m grid. Allowed moves - right or down.
+
+//  function gridWays(i,j,row,col){
+//     if(i == row-1 && j == col-1){
+//         return 1
+//     }
+//     else if(i == row || j == row){
+//         return 0
+//     }
+
+//     let way1 = gridWays(i+1,j,row,col)
+//     let way2 = gridWays(i,j+1,row,col)
+
+//     return way1 + way2
+//  }
+
+//  console.log(gridWays(0,0,3,3))
+
+//time complexity will be : O(2 power n+m)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//gridWays math trick for linear time
+
+//  function factorial(n){
+//     let fact = 1
+
+//     for(let i=1;i<=n;i++){
+//         fact *= i
+//     }
+
+//     return fact
+//  }
+
+//  function gridWays(n,m){
+//     let add = factorial((n-1)+(m-1))
+//     let multiplication = factorial(n-1) * factorial(m-1)
+//     return Math.floor(add/multiplication)
+//  }
+
+//  console.log(gridWays(3,3))
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// sudoku
+
+//write a function to complete the suduko
+
+let sudokuMatrix = [
+    [0,0,8,0,0,0,0,0,0],
+    [4,9,0,1,5,7,0,0,2],
+    [0,0,3,0,0,4,1,9,0],
+    [1,8,5,0,6,0,0,2,0],
+    [0,0,0,0,2,0,0,6,0],
+    [9,6,0,4,0,5,3,0,0],
+    [0,3,0,0,7,2,0,0,4],
+    [0,4,9,0,3,0,0,5,7],
+    [8,2,7,0,0,9,0,1,3]
+]
+
+function isSafe(mat,row,col,digit){
+    //column
+
+    for(let i=0;i<mat.length;i++){
+        if(mat[i][col] == digit){
+            return false
+        }
+    }
+
+    //row
+
+    for(let j=0;j<mat.length;j++){
+        if(mat[row][j] == digit){
+            return false
+        }
+    }
+
+    //grid
+
+    let startingRow = Math.floor((row/3)) * 3
+    let startingCol = Math.floor((col/3)) * 3
+
+    for(let i=startingRow;i<startingRow+3;i++){
+        for(let j=startingCol;j<startingCol+3;j++){
+            if(mat[i][j] == digit){
+                return false
+            }
+        }
+    }
+
+    return true
+}
+
+function sudokuSolve(mat,row,col){
+    if(row == 9 && col == 0){
+        return true
+    }
+
+    let nextRow = row
+    let nextCol = col+1
+
+    if(col+1 == 9){
+        nextRow = row + 1
+        nextCol = 0
+    }
+
+    if(mat[row][col] != 0){
+        return sudokuSolve(mat,nextRow,nextCol)
+    }
+
+    for(let i=1;i<=9;i++){
+        if(isSafe(mat,row,col,i)){
+            mat[row][col] = i
+            if(sudokuSolve(mat,nextRow,nextCol)){
+                return true
+            }
+            mat[row][col] = 0
+        }
+    }
+
+    return false
+}
+
+console.log(sudokuSolve(sudokuMatrix,0,0))
+
+console.log(sudokuMatrix)
