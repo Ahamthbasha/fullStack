@@ -263,17 +263,17 @@ class Stack{
     stockSpanProblem(arr){
         //span : max no of consecutive days price is less than todays price
         // span = i - prevHigh
-        let stack = []
+        let stack = new Stack()
         let span = []
         for(let i=0;i<arr.length;i++){
-            while(stack.length && arr[stack[stack.length-1]] <= arr[i]){
+            while(!stack.isEmpty() && arr[stack.peek()] <= arr[i]){
                 stack.pop()
             }
 
             if(i == 0){
                 span.push(i+1)
             }else{
-                span[i] = i - stack[stack.length-1]
+                span[i] = i - stack.peek()
             }
 
             stack.push(i)
@@ -442,4 +442,4 @@ const s = new Stack()
 
 // console.log(result ? "duplicate exist" : "duplicate not exist")
 
-console.log(s.maxAreaHistogram([2,1,5,6,2,3]))
+// console.log(s.maxAreaHistogram([2,1,5,6,2,3]))
