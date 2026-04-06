@@ -172,7 +172,7 @@ class Stack{
 
     pop(){
         if(this.isEmpty()){
-            return 'nothing to remove'
+            return undefined
         }
         else{
             return this.data.pop()
@@ -181,7 +181,7 @@ class Stack{
 
     peek(){
         if(this.isEmpty()){
-            return 'nothing on top'
+            return undefined
         }else{
             return this.data[this.data.length-1]
         }
@@ -302,21 +302,119 @@ class Stack{
 
         return result
     }
+
+    validParentheses(arr){
+        let bracketMap = {
+            "(" : ")",
+            "{" : "}",
+            "[" : "]"
+        }
+
+        let stack = new Stack()
+
+        for(let val of arr){
+            if(bracketMap[val]){
+                stack.push(val)
+            }else{
+                if(stack.isEmpty()){
+                    return false
+                }
+                let top = stack.pop()
+                if(bracketMap[top] != val){
+                    return false
+                }
+            }
+        }
+
+        return stack.isEmpty()
+    }
+
+    duplicateParentheses(arr){
+        let stack = new Stack()
+        for(let i=0;i<arr.length;i++){
+            if(arr[i] == ')'){
+                let count = 0
+                while(!stack.isEmpty() && stack.peek() != "("){
+                    stack.pop()
+                    count++
+                }
+
+                if(stack.isEmpty()){
+                    return false
+                }
+
+                if(count < 1){
+                    return true
+                }else{
+                    stack.pop()
+                }
+            }
+            else{
+                stack.push(arr[i])
+            }
+        }
+
+        return false
+    }
+
+    maxAreaHistogram(arr){
+        let nextSmallerLeft = []
+        let nextSmallerRight  = []
+        //next smaller Left
+        let leftStack = new Stack()
+        for(let i=0;i<arr.length;i++){
+            while(!leftStack.isEmpty() && arr[leftStack.peek()] >= arr[i]){
+                leftStack.pop()
+            }
+
+            if(leftStack.isEmpty()){
+                nextSmallerLeft[i] = -1 
+            }else{
+                nextSmallerLeft[i] = leftStack.peek()
+            }
+
+            leftStack.push(i)
+        }
+        
+        //next Smaller Right
+        let rightStack = new Stack()
+        for(let i=arr.length-1;i>=0;i--){
+            while(!rightStack.isEmpty() && arr[rightStack.peek()] >= arr[i]){
+                rightStack.pop()
+            }
+
+            if(rightStack.isEmpty()){
+                nextSmallerRight[i] = arr.length
+            }else{
+                nextSmallerRight[i] = rightStack.peek()
+            }
+            rightStack.push(i)
+        }
+
+        let maxArea = 0
+        for(let i=0;i<arr.length;i++){
+            let height = arr[i]
+            let width = nextSmallerRight[i] - nextSmallerLeft[i] - 1
+            let area = height * width
+            maxArea = Math.max(maxArea,area)
+        }
+        return maxArea
+    }
 }
 
 const s = new Stack()
 
-s.push(1)
-s.push(2)
-s.push(3)
+// s.push(1)
+// s.push(2)
+// s.push(3)
 
-console.log(s.print())
+// console.log(s.print())
 
-console.log(s.pop())
+// console.log(s.pop())
 
-console.log(s.print())
+// console.log(s.print())
 
-console.log(s.peek())
+// console.log(s.peek())
 
 // s.pushAtBottom(0)
 
@@ -332,8 +430,16 @@ console.log(s.peek())
 
 // console.log(s.print())
 
-s.reverseStackusingAnotherStack()
+// s.reverseStackusingAnotherStack()
 
-console.log(s.print())
+// console.log(s.print())
 
-console.log(s.nextGreaterElement([6,8,0,1,3]))
+// console.log(s.nextGreaterElement([6,8,0,1,3]))
+
+// console.log(s.validParentheses("()[]{}"))
+
+// let result = s.duplicateParentheses("((a))") 
+
+// console.log(result ? "duplicate exist" : "duplicate not exist")
+
+console.log(s.maxAreaHistogram([2,1,5,6,2,3]))
