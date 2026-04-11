@@ -119,23 +119,118 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function maxLengthChainPairs(pairs){
-    pairs.sort((a,b)=>a[1]-b[1])
+// function maxLengthChainPairs(pairs){
+//     pairs.sort((a,b)=>a[1]-b[1])
 
-    let result = []
-    result.push(pairs[0])
-    let end = pairs[0][1]
-    let count = 1
+//     let result = []
+//     result.push(pairs[0])
+//     let end = pairs[0][1]
+//     let count = 1
 
-    for(let i=1;i<pairs.length;i++){
-        if(pairs[i][0] >= end){
-            result.push(pairs[i])
-            end = pairs[i][1]
-            count++
+//     for(let i=1;i<pairs.length;i++){
+//         if(pairs[i][0] >= end){
+//             result.push(pairs[i])
+//             end = pairs[i][1]
+//             count++
+//         }
+//     }
+
+//     return {count,result}
+// }
+
+// console.log(maxLengthChainPairs([[5,24],[39,60],[5,28],[27,40],[50,90]]))
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// indian coins
+
+// let coins = [1,2,5,10,20,50,100,200,500,2000]
+// let amount = 590
+
+// function exchangeAmount(coins,amount){
+//     coins.sort((a,b)=>b-a)
+
+//     let exchange = []
+//     let count = 0
+
+//     for(let i=0;i<coins.length;i++){
+//         if(coins[i] <= amount){
+//             while(coins[i] <= amount){
+//                 amount -= coins[i]
+//                 count++
+//                 exchange.push(coins[i])
+//             }
+//         }
+//     }
+
+//     return {count,exchange}
+// }
+
+// console.log(exchangeAmount(coins,amount))
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Job sequencing problem
+
+// function jobSequencingProblem(jobs){
+//     jobs.sort((a,b)=>b[1] - a[1])
+
+//     let result = []
+//     let profit = 0
+//     let time = 0
+
+//     for(let i=0;i<jobs.length;i++){
+//         if(jobs[i][0] > time){
+//             result.push(jobs[i])
+//             profit += jobs[i][1]
+//             time++
+//         }
+//     }
+
+//     return {result,profit}
+// }
+
+// console.log(jobSequencingProblem([[4,20],[1,10],[1,40],[1,30]]))
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// chocola problem
+
+function chocolaProblem(rows,columns,costHorizontal,costVertical){
+    let horizontalIndex = 0
+    let verticalIndex = 0
+    let horizontalPieces = 1
+    let verticalPieces = 1
+    let cost = 0
+
+    costHorizontal.sort((a,b)=>b-a)
+    costVertical.sort((a,b)=>b-a)
+
+    while(horizontalIndex < costHorizontal.length && verticalIndex < costVertical.length){
+        if(costHorizontal[horizontalIndex] <= costVertical[verticalIndex]){
+            cost += costVertical[verticalIndex] * horizontalPieces
+            verticalPieces++
+            verticalIndex++
+        }else{
+            cost += costHorizontal[horizontalIndex] * verticalPieces
+            horizontalPieces++
+            horizontalIndex++
         }
     }
 
-    return {count,result}
+    while(horizontalIndex < costHorizontal.length){
+        cost += costHorizontal[horizontalIndex] * verticalPieces
+        horizontalPieces++
+        horizontalIndex++
+    }
+
+    while(verticalIndex < costVertical.length){
+        cost += costVertical[verticalIndex] * horizontalPieces
+        verticalPieces++
+        verticalIndex++
+    }
+
+    return cost
 }
 
-console.log(maxLengthChainPairs([[5,24],[39,60],[5,28],[27,40],[50,90]]))
+console.log(chocolaProblem(4,6,[4,1,2],[2,1,3,1,4]))
