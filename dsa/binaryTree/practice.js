@@ -114,6 +114,107 @@
         let right = this.sumOfNodes(root.right)
         return left + right + root.data
     }
+
+    diameterOfATree(root){
+        if(root == null){
+            return  0
+        }
+
+        let leftDiameter = this.diameterOfATree(root.left)
+        let leftHeight = this.heightOfTreeByNodes(root.left)
+        let rightDiameter = this.diameterOfATree(root.right)
+        let rightHeight = this.heightOfTreeByNodes(root.right)
+
+        let selfDiameter = leftHeight + rightHeight + 1
+
+        return Math.max(Math.max(leftDiameter,rightDiameter),selfDiameter)
+    }
+
+    diameterOfATree2(root){
+        if(root == null){
+            return {diameter:0,height:0}
+        }
+
+        let leftDiameter = this.diameterOfATree2(root.left)
+        let rightDiameter = this.diameterOfATree2(root.right)
+
+        let height = Math.max(leftDiameter.height,rightDiameter.height) + 1
+
+        let selfDiameter = leftDiameter.height + rightDiameter.height + 1
+
+        let diameter = Math.max(selfDiameter,leftDiameter.diameter,rightDiameter.diameter)
+
+        return {diameter:diameter,height}
+    }
+
+    isIdentical(root1,root2){
+        if(root1 == null && root2 == null){
+            return true
+        }
+        else if((root1 == null || root2 == null) || (root1.data != root2.data)){
+            return false
+        }
+
+
+        if(!this.isIdentical(root1.left,root2.left)){
+            return false
+        }
+
+        if(!this.isIdentical(root1.right,root2.right)){
+            return false
+        }
+
+        return true
+    }
+
+    isSubtree(root,subRoot){
+        if(root == null){
+            return false
+        }
+
+        if(root.data == subRoot.data){
+            if(this.isIdentical(root,subRoot)){
+                return true
+            }
+        }
+
+        return this.isSubtree(root.left,subRoot) || this.isSubtree(root.right,subRoot)
+    }
+
+    topViewOfATree(root){
+        let queue = []
+        queue.push({root,hd:0})
+        let freqMap = {}
+
+        let min = 0
+        let max = 0
+
+        while(queue.length){
+            let {root,hd} = queue.shift()
+
+            if(!freqMap[hd]){
+                freqMap[hd] = root.data
+            }
+
+            if(root.left){
+                queue.push({root:root.left,hd:hd-1})
+                min = Math.min(min,hd-1)
+            }
+
+            if(root.right){
+                queue.push({root:root.right,hd:hd+1})
+                max = Math.max(max,hd+1)
+            }
+        }
+
+        let result = []
+
+        for(let i=min;i<=max;i++){
+            result.push(freqMap[i])
+        }
+
+        return result
+    }
   }
 
 
@@ -138,10 +239,22 @@ root.right.right = new Node(7)
 
 const t = new BinaryTree()
 
-console.log(t.heightOfTreeByNodes(root))
+// console.log(t.heightOfTreeByNodes(root))
 
-console.log(t.heightOfTreeByEdges(root))
+// console.log(t.heightOfTreeByEdges(root))
 
-console.log(t.countOfNodes(root))
+// console.log(t.countOfNodes(root))
 
-console.log(t.sumOfNodes(root))
+// console.log(t.sumOfNodes(root))
+
+// console.log(t.diameterOfATree(root))
+
+// console.log(t.diameterOfATree2(root))
+
+// const subRoot = new Node(2)
+// subRoot.left = new Node(4)
+// subRoot.right = new Node(5)
+
+// console.log(t.isSubtree(root,subRoot))
+
+console.log(t.topViewOfATree(root))
