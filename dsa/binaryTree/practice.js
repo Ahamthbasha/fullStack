@@ -215,6 +215,193 @@
 
         return result
     }
+
+    kthLevel(root,level=1,k,result=[]){
+        if(root){
+            if(level == k){
+                result.push(root.data)
+                return
+            }
+            this.kthLevel(root.left,level+1,k,result)
+            this.kthLevel(root.right,level+1,k,result)
+        }
+        return result
+    }
+
+    kthLevelIterative(root,level){
+        let queue = []
+
+        queue.push(root)
+
+        let curLevel = 0
+
+        let result = []
+
+        while(queue.length){
+            let cur = queue.length
+            curLevel++
+
+            while(cur){
+                let node = queue.shift()
+                if(curLevel == level){
+                    result.push(node.data)
+                }
+
+                if(node.left){
+                    queue.push(node.left)
+                }
+
+                if(node.right){
+                    queue.push(node.right)
+                }
+
+                cur--
+            }
+        }
+        return result
+    }
+
+    path(root,n,result=[]){
+        if(!root){
+            return false
+        }
+        
+        result.push(root.data)
+
+        if(root.data == n){
+            return true
+        }
+
+        if(this.path(root.left,n,result) || this.path(root.right,n,result)){
+            return true
+        }
+
+        result.pop()
+        return false
+    }
+
+    LCA(n1,n2,root){
+        let path1 = []
+        let path2 = []
+
+        let found1 = this.path(root,n1,path1)
+        let found2 = this.path(root,n2,path2)
+
+        if(!found1 || !found2){
+            return null
+        }
+
+        let index = 0
+
+        while(index < path1.length && index < path2.length){
+            if(path1[index] != path2[index]){
+                break
+            }else{
+                index++
+            }
+        }
+ 
+        return path1[index-1]
+    }
+
+    LCARecursion(n1,n2,root){
+        if(root == null || n1 == root.data || n2 == root.data){
+            return root
+        }
+
+        let leftLca = this.LCARecursion(n1,n2,root.left)
+        let rightLca = this.LCARecursion(n1,n2,root.right)
+
+        if(leftLca == null){
+            return rightLca
+        }
+
+        if(rightLca == null){
+            return leftLca
+        }
+
+        return root
+    } 
+
+    lcaDistance(root,n){
+        if(root == null){
+            return -1
+        }
+
+        if(root.data == n){
+            return 0
+        }
+
+        let leftDistance = this.lcaDistance(root.left,n)
+        let rightDistance = this.lcaDistance(root.right,n)
+
+        if(leftDistance == -1 && rightDistance == -1){
+            return -1
+        }
+        else if(leftDistance == -1){
+            return rightDistance+1
+        }else{
+            return leftDistance+1
+        }
+    }
+
+    minDistance(root,n1,n2){
+        let lca = this.LCARecursion(n1,n2,root)
+        let distance1 = this.lcaDistance(lca,n1)
+        let distance2 = this.lcaDistance(lca,n2)
+
+        return distance1 + distance2
+    }
+
+    findKthAncestor(root,k,node){
+       let result = null
+
+       function helper(root){
+        if(!root){
+            return -1
+        }
+
+        if(root.data == node){
+            return 0
+        }
+
+        let left = helper(root.left)
+        let right = helper(root.right)
+
+        if(left == -1 && right == -1){
+            return -1
+        }
+
+        let dist = Math.max(left,right)+1
+
+        if(dist == k){
+            result = root.data
+        }
+
+        return dist
+       }
+
+       helper(root)
+       return result
+    }
+
+    transformToSumTree(root){
+        function helper(root){
+            if(!root){
+                return 0
+            }
+    
+            let leftSum = helper(root.left)
+            let rightSum = helper(root.right)
+            let oldValue = root.data
+
+            root.data = leftSum + rightSum
+
+            return oldValue + leftSum + rightSum
+        }
+        helper(root)
+        
+    }
   }
 
 
@@ -257,4 +444,20 @@ const t = new BinaryTree()
 
 // console.log(t.isSubtree(root,subRoot))
 
-console.log(t.topViewOfATree(root))
+// console.log(t.topViewOfATree(root))
+
+// console.log(t.kthLevel(root,1,2))
+
+// console.log(t.kthLevelIterative(root,2))
+
+// console.log(t.LCA(4,5,root))
+
+// console.log(t.LCARecursion(4,7,root))
+
+// console.log(t.minDistance(root,4,5))
+
+// console.log(t.findKthAncestor(root,1,4))
+
+console.log(t.transformToSumTree(root))
+
+t.levelOrder(root)
