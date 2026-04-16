@@ -181,15 +181,118 @@ class Bst{
             this.preOrder(root.right)
         }
     }
+
+    sortedArrayToBalancedBst(arr,s,e){
+        if(s > e){
+            return null
+        }
+
+        let mid = Math.floor((s+e)/2)
+        let root = new Node(arr[mid])
+        root.left = this.sortedArrayToBalancedBst(arr,s,mid-1)
+        root.right = this.sortedArrayToBalancedBst(arr,mid+1,e)
+
+        return root
+    }
+
+    inOrder(root){
+        if(root){
+            this.inOrder(root.left)
+            console.log(root.data)
+            this.inOrder(root.right)
+        }
+    }
+
+    convertBstToBalancedTree(root,result=[]){
+        if(root){
+            this.convertBstToBalancedTree(root.left,result)
+            result.push(root.data)
+            this.convertBstToBalancedTree(root.right,result)
+        }
+
+        return this.sortedArrayToBalancedBst(result,0,result.length-1)
+    }
+
+    sizeOfLargestBstInBst(root){
+        let maxSize = 0
+
+        function helper(node){
+            if(!node){
+                return {
+                    isBst : true,
+                    size : 0,
+                    min : Infinity,
+                    max : -Infinity
+                }
+            }
+
+            let left = helper(node.left)
+            let right = helper(node.right)
+
+            if(left.isBst && right.isBst && node.data > left.max && node.data < right.min){
+                let size = left.size + right.size + 1
+
+                maxSize = Math.max(maxSize,size)
+
+                return {
+                    isBst:true,
+                    size:size,
+                    min:Math.min(node.data,left.min),
+                    max:Math.max(node.data,right.max)
+                }
+            }
+
+            return {
+                isBst : false,
+                size : 0,
+                min : 0,
+                max : 0
+            }
+        }
+        helper(root)
+        return maxSize
+    }
+
+    inOrderResult(root,result=[]){
+        if(root){
+            this.inOrderResult(root.left,result)
+            result.push(root.data)
+            this.inOrderResult(root.right,result)
+        }
+        return result
+    }
+
+    merge2Bst(root1,root2){
+        let arr1 = this.inOrderResult(root1)
+        let arr2 = this.inOrderResult(root2)
+
+        let result = [...arr1,...arr2]
+        result.sort((a,b)=>a-b)
+
+        function helper(arr,start,end){
+            if(start > end){
+                return null
+            }
+
+            let mid = Math.floor((start+end)/2)
+            let root = new Node(arr[mid])
+            root.left = helper(arr,start,mid-1)
+            root.right = helper(arr,mid+1,end)
+
+            return root
+        }
+
+        return helper(result,0,result.length-1)
+    }
 }
 
-const b = new Bst()
+// const b = new Bst()
 
-let val = [8,5,3,6,10,11,14]
+// let val = [8,5,3,6,10,11,14]
 
-for(let value of val){
-    b.insert(value)
-}
+// for(let value of val){
+//     b.insert(value)
+// }
 
 // b.inOrder(b.root)
 
@@ -209,12 +312,77 @@ for(let value of val){
 
 // console.log(b.isValidBst(b.root))
 
-console.log("Before mirroring")
+// console.log("Before mirroring")
 
-b.preOrder(b.root)
+// b.preOrder(b.root)
 
-console.log("After mirroring")
+// console.log("After mirroring")
 
-b.mirrorBst(b.root)
+// b.mirrorBst(b.root)
 
-b.preOrder(b.root)
+// b.preOrder(b.root)
+
+// const r = new Bst()
+
+// const root = r.sortedArrayToBalancedBst([3,5,6,8,10,11,12],0,6)
+
+// r.inOrder(root)
+
+////////////////////////////////////////////////
+//  bst without balanced
+////////////////////////////////////////////
+
+// let root = new Node(8)
+
+// root.left = new Node(6)
+// root.left.left = new Node(5)
+// root.left.left.left = new Node(3)
+
+// root.right = new Node(10)
+// root.right.right = new Node(11)
+// root.right.right.right = new Node(12)
+
+// const b = new Bst()
+
+// b.inOrder(root)
+
+// root = b.convertBstToBalancedTree(root)
+
+// b.inOrder(root)
+
+/////////////////////////////////////////////////
+// Find the size of largest bst in given bst
+////////////////////////////////////////////////
+
+// let root = new Node(50)
+// root.left = new Node(30)
+// root.left.left = new Node(5)
+// root.left.right = new Node(20)
+
+// root.right = new Node(60)
+// root.right.left = new Node(45)
+// root.right.right = new Node(70)
+// root.right.right.left = new Node(65)
+// root.right.right.right = new Node(80)
+
+// const b = new Bst(root)
+
+//  console.log(b.sizeOfLargestBstInBst(root))
+
+/////////////////////////////////////////////////
+// MERGE 2 BSTS
+////////////////////////////////////////////////
+
+let root1 = new Node(2)
+root1.left = new Node(1)
+root1.right = new Node(4)
+
+let root2 = new Node(9)
+root2.left = new Node(3)
+root2.right = new Node(12)
+
+const b = new Bst()
+
+const root = b.merge2Bst(root1,root2)
+
+b.inOrder(root)
