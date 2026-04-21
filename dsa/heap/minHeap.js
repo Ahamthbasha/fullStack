@@ -111,14 +111,145 @@ class MinHeap{
         }
     }
 
+    heapify(i,size){
+        let leftChild = 2 * i + 1
+        let rightChild = 2 * i + 2
+        let maxIdx = i
 
+        if(leftChild < size && this.arr[leftChild] > this.arr[maxIdx]){
+            maxIdx = leftChild
+        }
+
+        if(rightChild < size && this.arr[rightChild] > this.arr[maxIdx]){
+            maxIdx = rightChild
+        }
+
+        if(maxIdx != i){
+            [this.arr[i],this.arr[maxIdx]] = [this.arr[maxIdx],this.arr[i]]
+            this.heapify(maxIdx,size)
+        }
+    }
+
+
+    heapSort(arr){
+        this.arr = arr
+
+        let n = arr.length
+
+        // build max heap
+
+        for(let i = Math.floor(n/2); i>=0; i--){
+            this.heapify(i,n)
+        }
+
+        // push largest at end
+
+        for(let i = n - 1;i>=0;i--){
+            [this.arr[i],this.arr[0]] = [this.arr[0],this.arr[i]]
+            this.heapify(0,i)
+        }
+    }
+
+    nearByCars(points,k){
+        let result = []
+        for(let val of points){
+            let [x,y] = val
+            result.push((x * x) + (y * y))
+        }
+
+        result.sort((a,b)=>a-b)
+
+        console.log(result.slice(0,k))
+        return result.slice(0,k)
+    }
+
+    connectNRopesGreedy(ropes){
+        ropes.sort((a,b)=>a-b)
+
+        let cost = 0
+
+        while(ropes.length != 1){
+            let first = ropes.shift()
+            let second = ropes.shift()
+            let sum = first + second
+            cost += sum
+            ropes.push(sum)
+            ropes.sort((a,b)=>a-b)
+        }
+
+        return cost
+    }
+
+    connectNRopes(ropes){
+        let heap = new MinHeap()
+
+        for(let val of ropes){
+            heap.insert(val)
+        }
+
+        let cost = 0
+
+        while(heap.arr.length > 1){
+            let first = heap.delete()
+            let second = heap.delete()
+            cost += first + second
+            heap.insert(first+second)
+        }
+
+        return cost
+    }
+
+    weakestSoldier(arr,k){
+
+        let heap = new MinHeap()
+
+        for(let i=0;i<arr.length;i++){
+            let count = 0
+            for(let j = 0;j<arr[i].length;j++){
+                count += arr[i][j] == 1 ? 1 : 0
+            }
+
+            heap.insert([count,i])
+        }
+
+        let result = []
+
+        for(let i=0;i<k;i++){
+            let [soldier,i] = heap.delete()
+            result.push(i)
+        }
+
+        return result
+
+    }
+
+      
 }
 
 let heap = new MinHeap()
 
-heap.insert(10)
-heap.insert(5)
-heap.insert(15)
-heap.insert(2)
+// heap.insert(10)
+// heap.insert(5)
+// heap.insert(15)
+// heap.insert(2)
 
-console.log(heap.arr)
+// console.log(heap.arr)
+
+// let arr = [1,2,4,5,3]
+
+// heap.heapSort(arr)
+
+// console.log(heap.arr)
+
+// console.log(heap.nearByCars([[3,3],[5,-1],[-2,4]],2))   
+
+// console.log(heap.connectNRopes([4,3,2,6]))
+
+let arr = [
+    [1,0,0,0],
+    [1,1,1,1],
+    [1,0,0,0],
+    [1,0,0,0,]
+]
+
+console.log(heap.weakestSoldier(arr,2))
