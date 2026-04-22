@@ -220,10 +220,26 @@ class MinHeap{
         }
 
         return result
-
     }
 
-      
+    slidingWindowMaximum(arr,k){
+         let result = []
+
+         for(let i=0;i<arr.length;i++){
+            let temp = []
+            for(let j=i;j<i+k;j++){
+                if(arr[j] != undefined){
+                    temp.push(arr[j])
+                }
+            }
+
+            if(temp.length >= k){                
+                result.push(Math.max(...temp))
+            }
+         }
+
+         return result
+    }
 }
 
 let heap = new MinHeap()
@@ -245,11 +261,13 @@ let heap = new MinHeap()
 
 // console.log(heap.connectNRopes([4,3,2,6]))
 
-let arr = [
-    [1,0,0,0],
-    [1,1,1,1],
-    [1,0,0,0],
-    [1,0,0,0,]
-]
+// let arr = [
+//     [1,0,0,0],
+//     [1,1,1,1],
+//     [1,0,0,0],
+//     [1,0,0,0,]
+// ]
 
-console.log(heap.weakestSoldier(arr,2))
+// console.log(heap.weakestSoldier(arr,2))
+
+console.log(heap.slidingWindowMaximum([1,3,-1,-3,5,3,6,7],3))
