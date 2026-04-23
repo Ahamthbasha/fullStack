@@ -113,7 +113,7 @@ class MaxHeap{
             while(temp.peek()[1] <= i-k){
                 temp.remove()
             }
-    
+     
             if(i >= k-1){
                 result.push(temp.peek()[0])
             }
