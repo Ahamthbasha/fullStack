@@ -140,7 +140,7 @@ let arr = [2,3,1,1,4]
 function minimumJumps(arr){
     let dp = []
 
-    for(let i=0;i<=arr.length;i++){
+    for(let i=0;i<arr.length;i++){
         dp[i] = -1
     }
 
