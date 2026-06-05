@@ -457,15 +457,237 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-const arr = [1,2,3,4,5]
-const k = 2
+// const arr = [1,2,3,4,5]
+// const k = 2
 
-let i = 0
+// let i = 0
 
-while(i != k){
-  let last = arr.pop()
-  arr.unshift(last)
-  i++
-}
+// while(i != k){
+//   let last = arr.pop()
+//   arr.unshift(last)
+//   i++
+// }
 
-console.log(arr)
+// console.log(arr)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// deepCopy
+
+
+// function deepCopy(obj){
+//   if(obj == null || typeof obj != 'object'){
+//     return obj
+//   }
+
+//   const copy = Array.isArray(obj) ? [] : {} 
+
+//   for(let key in obj){
+//     copy[key] = deepCopy(obj[key])
+//   }
+
+//   return obj
+// }
+
+// function deepCopy2(obj){
+//   return JSON.parse(JSON.stringify(obj))
+// }
+
+// function deepCopy3(obj){
+//   return structuredClone(obj)
+// }
+
+// function deepFreeze(obj){
+//   let propNames = Object.getOwnPropertyNames(obj)
+
+//   for(let key of propNames){
+//     const value = obj[key]
+
+//     if(value != null || typeof obj == 'object'){
+//       deepFreeze(value)
+//     }
+//   }
+
+//   return Object.freeze(obj)
+// }
+
+// function fact(n){
+//   let f = 1
+
+//   for(let i=1;i<=n;i++){
+//     f *= i
+//   }
+  
+//   return f
+// }
+
+// function memoization(fn){
+//   let cache = {}
+//   return function(args){
+//     if(args in cache){
+//       return cache[args]
+//     }else{
+//       let result = fn(args)
+//       cache[args] = result
+//       return result 
+//     }
+//   }
+// }
+
+// let factMemo = memoization(fact)
+// console.time()
+// console.log(factMemo(5))
+// console.timeEnd()
+
+// console.time()
+// console.log(factMemo(5))
+// console.timeEnd()
+
+
+// proxy object
+
+// let object = {
+//   name : "ahamathbasha",
+//   age : 20
+// }
+
+// const handler = {
+//   get(target,props){
+//     if(props in target){
+//       return target[props]
+//     }else{
+//       return 'props not found'
+//     }
+//   },
+//   set(target,props,value){
+//     if(props in target){
+//       target[props] = value
+//       return true
+//     }else{
+//       return false
+//     }
+//   }
+// }
+
+// const proxyObject = new Proxy(object,handler)
+
+// console.log('object',object.name)
+
+// console.log('proxy object',proxyObject.name)
+
+// proxyObject.name = "aravindSwamy"
+
+// console.log('proxy',proxyObject.name)
+
+// console.log('after proxy change',object.name)
+
+// const obj = new Proxy(object,handler)
+
+// getters and setters
+
+// const obj = {
+//   firstName : 'basha',
+//   lastName : 'f',
+//   get fullName(){
+//     return `${this.firstName} ${this.lastName}`
+//   },
+//   set fullName(names){
+//     [this.firstName,this.lastName] = names.split(' ')
+//   }
+// }
+
+// console.log(obj.fullName)
+
+// obj.fullName='aaya sher'
+
+// console.log(obj.fullName)
+
+// function *print(start,end){
+//   while(start <= end){
+//     yield start
+//     start++
+//   }
+// }
+
+// let s = 1
+// let e = 100
+
+// const n = print(s,e)
+
+// for(let i=s;i<=e;i++){
+//   console.log(n.next().value)
+// }
+
+// function curry(a){
+//   return function(b){
+//     return function(c){
+//       return a+b+c
+//     }
+//   }
+// }
+
+// console.log(curry(1)(2)(3))
+
+// call apply bind
+
+// const obj = {
+//   name:'ahamathbasha'
+// }
+
+// function sayHi(args){
+//   return `Hi ${this.name} ${args}`
+// }
+
+// console.log(sayHi('basha'))
+
+// console.log(sayHi.call(obj,'How are you?'))
+
+// console.log(sayHi.apply(obj,['how are you?']))
+
+// let bin = sayHi.bind(obj)
+
+// console.log(bin("who are you"))
+
+// // prototype chain
+
+// class Calculator{
+//   add(a,b){
+//     return a + b
+//   }
+// }
+
+// class ScientificCalci extends Calculator{
+//   multi(a,b){
+//     return a * b
+//   }
+// }
+
+// const s = new ScientificCalci()
+
+// console.log(s.multi(5,5))
+
+// console.log(s.add(5,6))
+
+// // function based prototype
+
+// function calculator(){}
+
+// calculator.prototype.add = function(a,b){
+//   return a + b
+// }
+
+// function scientificCalci(){
+//   calculator.call(this)
+// }
+
+// scientificCalci.prototype = Object.create(calculator.prototype)
+
+// scientificCalci.prototype.multi = function(a,b){
+//   return a * b
+// }
+
+// const calci = new scientificCalci()
+
+// console.log(calci.multi(5,5))
+
+// console.log(calci.add(5,5))
