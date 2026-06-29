@@ -178,3 +178,53 @@
 // }
 
 // console.log(sumArray([1,2,3]))
+
+//////////////////////////////////////////////////////////
+
+// day 3 - dsa
+
+//////////////////////////////////////////////////////////
+
+
+// reverse a string
+
+// function reverseStr(str,index=str.length-1,newStr=''){
+//     if(index == 0){
+//         newStr += str[index]
+//         return newStr
+//     }
+
+    
+
+//     return reverseStr(index-1,str,newStr.concat(str[index]))
+// }
+
+// console.log(reverseStr("hello"))
+
+//slice method
+
+// function revStr2(str,newStr=''){
+//     if(str.length < 1){
+//         newStr.concat(str)
+//         return newStr
+//     }
+
+//     let lastChar = str[str.length-1]
+
+//     return revStr2(str.slice(0,str.length-1),newStr.concat(lastChar))
+// }
+
+// console.log(revStr2("hello"))
+
+// checking palindrome
+
+function checkPalindrome(str){
+   
+    if(str.length < 2){
+        return true
+    }
+
+    return (str[0] == str[str.length-1]) && checkPalindrome(str.slice(1,str.length-1))
+}
+
+console.log(checkPalindrome("appab"))
